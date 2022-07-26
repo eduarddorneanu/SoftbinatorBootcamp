@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./TodoItem.module.css";
 
-const TodoItem = (props) => {
+const TodoItem = ({color, onClick, action, times}) => {
 
     const handleClick = (event) => {
         console.log(event.target.checked);
@@ -10,11 +10,12 @@ const TodoItem = (props) => {
     return <li 
         className={styles.TodoItem}
         style={{
-            color: props.color
+            color: color
         }}
+        onClick={onClick}
     >
         <input type="checkbox" onClick={handleClick}  />
-        <span>{props.action} - {props.times} times</span>
+        <span>{action} - {times} times</span>
     </li>
 };
 
